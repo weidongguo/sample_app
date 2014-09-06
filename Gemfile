@@ -3,6 +3,7 @@ ruby '2.0.0'
 #ruby-gemset=railstutorial_rails_4_0
 
 gem 'rails', '4.0.8'
+gem 'rb-readline'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

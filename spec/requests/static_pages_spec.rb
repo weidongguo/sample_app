@@ -8,9 +8,13 @@ describe "Static pages" do
       visit '/static_pages/home'
       expect(page).to(have_content('Sample App'))
     end
-    it "should have title 'Home'" do
+    it "should have title base title" do
       visit '/static_pages/home'
       expect(page).to(have_title(base_title))
+    end
+    it "should not have a cutsom page title" do
+      visit '/static_pages/home'
+      expect(page).not_to(have_title('| Home'))
     end
   end
 
