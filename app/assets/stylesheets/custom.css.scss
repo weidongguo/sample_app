@@ -1,7 +1,6 @@
 @import "bootstrap";
 
 /* universal */
-
 html{
   overflow-y: scroll; //add a vertical scroll bar to all htmls
   overflow-x: scroll; //add a horizontal scroll bar to all htmls
@@ -10,3 +9,33 @@ html{
 body{
   padding-top: 60px;
 }
+
+section{
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+
+}
+
+.center h1 {
+  margin-bottom: 10px;
+
+ }
+
+/* the dot . in .center indicates that the rule styles a class.
+   the pound sign # identifies a rule to style a CSS id.
+
+   This means that elements inside any tag(such as div)  with class "center" will 
+   be centered on the page.
+*/
+
+
+/* typography */
+
+
