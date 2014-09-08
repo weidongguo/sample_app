@@ -38,4 +38,18 @@ textarea {
 
 /* typography */
 
+/* ... */
 
+/* header */
+#logo{ // :id => "logo" , so we use a CSS id
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #fff; // shorthand for #ffffff, three pairs of hexadecimal numbers,
+               // one each for the primary colors red, green, and blue(in order)
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  line-height: 1; 
+}
