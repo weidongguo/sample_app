@@ -1,0 +1,18 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <!-- header tag indicates elements that should go atthe top fo the page,
+  we've give the header tag 3 CSS classes -->
+    <div class="navbar-inner"> <!-- div tag divides the document into parts -->
+      <div class="container">
+        <%= link_to("sample app", '#', id: "logo") %>
+        <nav>
+          <ul class="pull-right nav">    
+            <li><%= link_to "Home", '#' %></li>
+            <li><%= link_to "Help", '#' %></li>
+            <li><%= link_to "Sign in", '#' %></li> <!-- link_to() generates
+                                                    <a href='#'>Sign in</a> -->
+          </ul>
+        </nav>   
+      </div>
+    </div>
+</header>
+

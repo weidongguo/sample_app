@@ -5,32 +5,17 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
-  <!--[if lt IE 9]>
-  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
+  
+  <%= render 'layouts/shim' %>
 
-  <!--older versions of IE don't fully support HTML5, so we need to include some javascript code to work around this issue-->
 </head>
 
 <body>
-  <header class="navbar navbar-fixed-top navbar-inverse">
-  <!-- header tag indicates elements that should go atthe top fo the page,
-  we've give the header tag 3 CSS classes -->
-    <div class="navbar-inner"> <!-- div tag divides the document into parts -->
-      <div class="container">
-        <%= link_to("sample app", '#', id: "logo") %>
-        <ul class="pull-right nav">    
-            <li><%= link_to "Home", '#' %></li>
-            <li><%= link_to "Help", '#' %></li>
-            <li><%= link_to "Sign in", '#' %></li> <!-- link_to() generates
-                                                    <a href='#'>Sign in</a> -->
-        </ul> 
-      </div>
-    </div>
-  </header>
+  <%= render('layouts/header') %>
   
   <div class="container">
     <%= yield %>
+    <%= render('layouts/footer') %>
   </div>
 
 </body>
