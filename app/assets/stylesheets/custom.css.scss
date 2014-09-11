@@ -20,13 +20,12 @@ textarea {
 
 .center {
   text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
 
 }
 
-.center h1 {
-  margin-bottom: 10px;
-
- }
 
 /* the dot . in .center indicates that the rule styles a class.
    the pound sign # identifies a rule to style a CSS id.
@@ -55,7 +54,7 @@ h2 {
   margin-bottom:30px;
   text-align: center;
   font-weight: normal;
-  color: #999;
+  color: $grayLight; // #999;
 }
 
 p{
@@ -77,45 +76,37 @@ p{
   padding-top: 9px;
   font-weight: bold;
   line-height: 1; 
-}
-
-
-#logo:hover {
+ 
+  &:hover {    //the job of Sass is to convert &:hover to #logo:hover when cconverting from SCSS to CSS 
   color: #fff;
-  text-decoration: none;
+  font-size: 1.8em;
+  text-decoration:none;
+  }
 }
 
-/* footer */
-
-footer{
+footer {
   margin-top:45px;
   padding-top:5px;
   border-top: 1px solid #eaeaea;
-  color: #999;
+  color: $grayLight; // $grayLight = #999;
 
-}
+  a {
+    color: #555;
+    &:hover {
+    color: #222;
+    }
+  }
 
-footer a{
-  color: #555;
-}
+  small {
+    float: left;
+  }
 
-footer a:hover {
-  color: #222;
-}
-
-footer small{
-  float:left;
-
-}
-
-footer ul{
+  ul {
   float: right;
-  list-style: none; 
-
-}
-
-footer ul li{
-  float: left;
-  margin-left: 10px;
-
+  list-style: none;
+    li {
+    float: left;
+    margin-left: 10px;
+    }
+  }
 }
