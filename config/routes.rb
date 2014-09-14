@@ -1,6 +1,10 @@
 SampleApp::Application.routes.draw do
+  get "users/new"
+  
   # match '/', :to => 'static_pages#home', via:'get'
   root 'static_pages#home'  # this gives the var root_path, the one above doesn't.
+  
+  match '/signup', to: 'users#new', via: 'get'
 
   # get "static_pages/help"
   match '/help', :to => 'static_pages#help', :via => 'get'
