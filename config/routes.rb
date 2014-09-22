@@ -1,5 +1,6 @@
 SampleApp::Application.routes.draw do
-  get "users/new"
+  resources :users  # open up [ get "users/new" ] and more, like users/{id}
+  
   
   # match '/', :to => 'static_pages#home', via:'get'
   root 'static_pages#home'  # this gives the var root_path, the one above doesn't.
