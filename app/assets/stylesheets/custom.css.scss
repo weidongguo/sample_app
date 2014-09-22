@@ -110,3 +110,21 @@ footer {
     }
   }
 }
+/* mixins, variables etc. */
+
+$grayMediumLight: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  /* packed up the above three attributes and named it box_sizing(by the keyword @mixin */
+}
+
+.debug_dump {
+    clear: both;
+    float: right;
+    width: 100%;
+    margin-top: 45px;
+    @include box_sizing;
+    }
