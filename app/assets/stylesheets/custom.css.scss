@@ -133,7 +133,7 @@ $grayMediumLight: #eaeaea;
 
 aside {
   section {
-    padding: 10px 0 ;
+    padding: 10px 0;//top right bottom left | 10px(top) 0(right) blank(bottom)..
     border-top: 1px solid $grayLighter;
     &:first-child {
       border: 0;
