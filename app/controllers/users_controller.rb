@@ -12,12 +12,21 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user= User.new(params[:user]) # not the final implementation!
+    @user= User.new(user_params) # not the final implementation!
     if @user.save
       # handle a succesfful save
     else
       render 'new'
     end
   end
-
+  
+  private
+    def user_params
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      # returns a user hash with attribute :name, :email ...
+      # from params[user], but only allow those permitted attributes to be passed
+      # require() ensures the existence of user hash in params(a hash of hashes)
+    end
 end
+
+
