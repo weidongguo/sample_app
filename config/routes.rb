@@ -1,10 +1,14 @@
 SampleApp::Application.routes.draw do
+  resources :sessions, only:[:new, :create, :destroy]  
+                      # we've restricted the actions only to new, create, destroy 
   resources :users  # open up [ get "users/new" ] and more, like users/{id}
   
   
   # match '/', :to => 'static_pages#home', via:'get'
   root 'static_pages#home'  # this gives the var root_path, the one above doesn't.
-  
+  match '/signin', to: 'sessions#new', via: 'get'
+  match '/signout', to: 'sessions#destroy', via: "delete"
+
   match '/signup', to: 'users#new', via: 'get'
 
   # get "static_pages/help"
