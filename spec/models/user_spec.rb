@@ -14,6 +14,7 @@ describe User do
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:authenticate) }
+  it { should respond_to(:remember_token) }
 
   describe "when name is not present" do
     before { @user.name=" " }
@@ -120,5 +121,11 @@ describe User do
       @user.save
       expect(@user.reload.email).to eq mixed_case_email.downcase
      end
+  end
+
+  describe "remember token" do
+    before { @user.save }
+    its(:remember_token) {should_not be_blank}
+    # equivalent to> it { expect(@user.remember_token).not_to be_blank } 
   end
 end

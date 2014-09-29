@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
   
- ## before_save { self.email = email.downcase}
-  
+  # before_save { self.email = email.downcase}
   before_save { email.downcase! }
-  
+ 
+  before_create(:create_remember_token) #calls create_remember_token() before saving user 
   
   validates(:name, presence: true, length: { maximum: 50 } )
   
@@ -25,6 +25,20 @@ class User < ActiveRecord::Base
   # 2) require that they match
   # 3) add an authenticate method to compared a hashed password to the
   #    password_digest from the db.
-    
+
+  def User.new_remember_token
+    SecureRandom::urlsafe_base64() 
+  end
+  
+  def User.digest(token)
+    Digest::SHA1.hexdigest(token.to_s) # to_s() to take care of nil
+  end
+
+  private ######################### private methods #################
+
+    def create_remember_token
+      self.remember_token = User.digest(User.new_remember_token)
+    end 
+   
 end
 
