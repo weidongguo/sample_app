@@ -12,3 +12,8 @@ RSpec::Matchers.define(:have_error_message) do |message|
     expect(page).to have_selector('div.alert.alert-error', text:message)
   end
 end
+
+
+def sign_in(user, options={})
+
+end

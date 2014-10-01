@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def new
-    @user = User.new
- 
+    @user = User.new 
   end
   
   def index
@@ -21,6 +20,14 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+
+  def edit
+    @user = User.find(params[:id]) # i think id is passed to params from path_name
+                                   # e.g. users/1/edit for PATCH (edit)
+                                   # e.g. users/1 for GET (show)
+  end
+                                    
+
   
   private
     def user_params
