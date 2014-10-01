@@ -30,12 +30,13 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id]) 
     if( @user.update_attributes(user_params)  )
-      redirect_to user_path(current_user) # redirect_to goes to the action first
-                                          # basically doing a full request
+      flash[:success] = "Profile updated"
+      redirect_to user_path(@user) # redirect_to goes to the action first
+                                   # basically doing a full request
     else # errors occured 
       render 'edit' # directly going to the view of edit, bypassing the controller
                     # so edit.html.erb has the @user from the update action
-                    # not the edit action.
+                    # not from the edit action. Thus, render doesn't do a request
 
     end                                 
   end
