@@ -13,7 +13,17 @@ RSpec::Matchers.define(:have_error_message) do |message|
   end
 end
 
-
-def sign_in(user, options={})
-
+def sign_in(user, options={} )
+  if options[:no_capybara]
+    #default is that options[:no_capybara] is nil -> false
+    #once it's set, it's ture
+    remember_token = User.new_remember_token
+    cookies[:remember_token] = remember_token
+    user.update_attribute(:remember_token, User.digest(remember_token)) 
+  else # using capybara
+     visit signin_path
+     fill_in "Email", with: user.email
+     fill_in "Password", with: user.password
+     click_button "Sign in"
+  end
 end

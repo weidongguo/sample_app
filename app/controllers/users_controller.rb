@@ -26,8 +26,19 @@ class UsersController < ApplicationController
                                    # e.g. users/1/edit for PATCH (edit)
                                    # e.g. users/1 for GET (show)
   end
-                                    
+ 
+  def update
+    @user = User.find(params[:id]) 
+    if( @user.update_attributes(user_params)  )
+      redirect_to user_path(current_user) # redirect_to goes to the action first
+                                          # basically doing a full request
+    else # errors occured 
+      render 'edit' # directly going to the view of edit, bypassing the controller
+                    # so edit.html.erb has the @user from the update action
+                    # not the edit action.
 
+    end                                 
+  end
   
   private
     def user_params
